@@ -24,7 +24,7 @@ do this when importing a large set of users, but revert to yes once done!
 
 
 #### Check you SSL connection to the OD server
-openssl s_client -connect myServerName:636
+	openssl s_client -connect myServerName:636
 
 to keep an eye on things
 	
