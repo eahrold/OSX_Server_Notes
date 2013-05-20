@@ -1,0 +1,3 @@
+Make Sure you copy the Intermediate Certificate from the Master to The Replica and vice versa, before enabling SSL  -- ML server 2.2.1 only copies things one way.
+
+
