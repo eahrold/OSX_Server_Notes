@@ -26,7 +26,7 @@ do this when importing a large set of users, but revert to yes once done!
 #### Check you SSL connection to the OD server
 openssl s_client -connect myServerName:636
 
-
-tail -f /var/log/slapd.log
+to keep an eye on things
+		tail -f /var/log/slapd.log
 
 /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
