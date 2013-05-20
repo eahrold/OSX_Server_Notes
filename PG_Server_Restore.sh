@@ -4,6 +4,7 @@
 #
 #  These commands need to be run on the server source side....
 #  then move the files to some where else
+#  to get a list of what's avaliable do -- sudo psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _postgres --list
 ## ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 ##./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql
 
