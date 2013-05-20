@@ -29,4 +29,4 @@ openssl s_client -connect myServerName:636
 to keep an eye on things
 	tail -f /var/log/slapd.log
 
-/Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
+	/Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
