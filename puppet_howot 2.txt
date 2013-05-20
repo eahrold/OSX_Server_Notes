@@ -1,0 +1,15 @@
+Things to remember When installing puppet
+
+
+Puppet Install
+	Master Location /usr/share/puppet
+	Dashboard Local /usr/share/puppet-dashboard
+
+
+
+Homebrew MySQL
+
+#fix ownership on /usr/local/var/mysql
+	chown -RL mysql:mysql /usr/local/var/mysql
+#set proper UserName on 
+	defaults write /usr/local/Cellar/mysql/5.5.29/homebrew.mxcl.mysql.plist UserName mysql
