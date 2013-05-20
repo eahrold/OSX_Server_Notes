@@ -33,3 +33,4 @@ to keep an eye on things
 and another way to wipe DeviceMgr
 
 	/Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
+	sudo psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _postgres --list
