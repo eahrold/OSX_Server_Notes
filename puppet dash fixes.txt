@@ -1,4 +1,7 @@
-Things to remember When installing puppet
+Things to remember When installing puppet and Puppet Dash
+
+
+When Running under passenger, the puppet user needs to have a home directory set, could be /dev/null
 
 
 Puppet Install
