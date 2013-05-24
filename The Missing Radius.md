@@ -7,6 +7,7 @@
 	radiusconfig -naslist
 
 ##### install the certs
+######This command will do that using the Cert that your os x server website is using,
 	DEFAULTCERT=$(serveradmin settings web | grep -i web:defaultSecureSite:sslCertificateIdentifier | awk '{print $3}'|sed 's/\"//g')
 	radiusconfig -installcerts /etc/certificates/${DEFAULTCERT}.key.pem /etc/certificates/${DEFAULTCERT}.cert.pem /etc/certificates/${DEFAULTCERT}.chain.pem
 
