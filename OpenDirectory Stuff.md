@@ -14,9 +14,9 @@ also this if you need to recreate your root certificates.
 
 	sudo slapconfig -createrootcertauthority "My Server Cert Auth" admin@myserver.com "My Server Unit"
 
+	sudo slapconfig -getmasterconfig
 
-do this when importing a large set of users, but revert to yes once done!
-	
+#####do this when importing a large set of users, but revert to yes once done!
 	sudo slapconfig -setfullsyncmode no	
 
 ####And if Kerberos isn't working
