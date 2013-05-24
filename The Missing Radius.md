@@ -15,3 +15,7 @@
 
 #####Finally launch it using the launchd 
 	launchctl load /System/Library/LaunchDaemons/org.freeradius.radiusd.plist
+
+
+#####if while testing you're banging your head against a wall because your client computer can't authenticate,  remove the 802.1X Password for the Wireless from your login keychain and it should re-ask for username and password.
+
