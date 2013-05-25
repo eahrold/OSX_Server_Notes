@@ -54,6 +54,7 @@ on the OD server do
 	$ kinit diradmin
 	$ ldapmodify
 then at after the section that looks like this
+	
 	SASL/GSSAPI authentication started
 	SASL username: diradmin@OD.MYHOME.PRIVATE
 	SASL SSF: 56
