@@ -1,6 +1,7 @@
 ####Make Sure you copy the Intermediate Certificate from the Master to The Replica and vice versa, before enabling SSL  
 ML server 2.2.1 only copies things one way.
 
+
 ####MDM stuff
 If you're going to be using the MDM Services for remote management, the OD master must be your MDM server.  The MDM server cannot be a replica by default because SCEP fails if it's not, I suspect this is due the crl needing to be on the mdm master.  However there's also a setting from serveradmin to specify the OD master, which is set to 127.0.0.1 by default, and changing that may make things work. 
 
@@ -14,7 +15,30 @@ also this if you need to recreate your root certificates.
 
 	sudo slapconfig -createrootcertauthority "My Server Cert Auth" admin@myserver.com "My Server Unit"
 
+
+You also will want to make sure you bi-directional replicas set on your master and replica
+run this command on both your master and replica
+
 	sudo slapconfig -getmasterconfig
+
+it should look like this on the master/replica
+
+	Master LDAP server
+	Updated: 2013-05-25 20:20:29 +0000
+	
+	List Of Replicas
+	replica.server.com - OK
+
+if you replica dosn't have a "List of replicas", you can add it by doing this
+first get the guid of ther server and the serverID
+
+	dscl /LDAPv3/127.0.0.1 -read Computers/master.server.com$ GeneratedUID | awk '{print $2}'
+	dscl /LDAPv3/127.0.0.1 -read Computers/master.server.com$ apple-ldap-serverid | awk '{print $2}'
+
+place the reutrned values in this command
+
+	sudo slapconfig -addreplica --serverID 2 --guid 1234123FX-AZ07-4AF2-82ED-12K1KJ41234 master.server.com
+
 
 #####do this when importing a large set of users, but revert to yes once done!
 	sudo slapconfig -setfullsyncmode no	
@@ -43,7 +67,7 @@ then back up the db's
 	 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 	 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql
 
-#### Fixing slapd issues
+#### Fixing slapd issues (Maybe)
 
 in case of log entries like this
 	
