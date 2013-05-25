@@ -70,4 +70,4 @@ do Control-D...  After that reindex by doing
 
 	launchctl unload /System/Library/LaunchDaemons/org.openldap.slapd.plist
 	sudo slapindex
-	launchctl unload /System/Library/LaunchDaemons/org.openldap.slapd.plist
+	launchctl load /System/Library/LaunchDaemons/org.openldap.slapd.plist
