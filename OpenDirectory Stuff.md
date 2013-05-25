@@ -75,8 +75,9 @@ in case of log entries like this
 
 
 on the OD server do 
-	$ kinit diradmin
-	$ ldapmodify
+
+	kinit diradmin
+	ldapmodify
 then at after the section that looks like this
 	
 	SASL/GSSAPI authentication started
