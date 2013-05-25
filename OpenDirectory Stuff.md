@@ -85,6 +85,7 @@ then at after the section that looks like this
 	SASL data security layer installed.
 
 enter this text right in the window
+
 	dn: olcDatabase={1}bdb,cn=config
 	changetype: modify
 	add: olcDbIndex
