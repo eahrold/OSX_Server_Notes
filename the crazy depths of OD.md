@@ -28,5 +28,3 @@ in "ComputerGroups"
 com.apple.opendirectory.group
 GroupMembers needs to be GUID of master
 
-
-D37ADFB7-A048-4365-B003-4B1B6C0D00CA
