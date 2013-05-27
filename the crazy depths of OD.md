@@ -6,14 +6,22 @@ use Directory Utility to do this.
 First off the GUID of the Master Needs to be fixed in a couple of places.
 
 get the GUID from  here , it's the new ID
-	in "Config"
-		ldapreplicas -- XMLPlist
 
-then enter that GUID into the Computers record of my.server.com$
+	Config
+		-ldapreplicas
+			-XMLPlist
 
-and also in "ComputerGroups"
-	com.apple.opendirectory.group
-		GroupMembers needs to be GUID of master
+then enter that GUID into the 
+
+	Computers  
+		-my.server.com$
+			-GeneratedUID
+
+and also in 
+
+	ComputerGroups
+		-com.apple.opendirectory.group
+			-GroupMembers
 
 
 passwordserver should look like this... no duplicate arrays or Replica dicsts at all.
