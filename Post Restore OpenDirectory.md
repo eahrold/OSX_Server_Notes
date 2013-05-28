@@ -45,5 +45,24 @@ passwordserver should look like this... no duplicate arrays or Replica dicsts at
 	</plist>
 
 
+#####For some reason, apple dosn't reset a few things quite right
+in particular apple-group-memberguida and apple-group-nestedgroup are only set with index of *eq*, but with Profile manager the need to be *sub* as well.  You will see errors in your /var/log/slapd.log like this
+
+	bdb_substring_candidates: (apple-group-nestedgroup) not indexed
+
+the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv3/127.0.0.1, login as diradmin, then navigate to the OLCDBDConfig.  Go to your dc=my,dc=server,dc=com  find the value for each of the following and change to what's here
+
+	apple-group-nestedgroup    eq,sub
+	apple-group-memberguid     eq,sub
+	altSecurityIdentities      eq,sub
+
+
+* you can also fix it with ldapmodify 
+
+	dn: olcDatabase={1}bdb,cn=config
+	changetype: modify
+	add: olcDbIndex
+	olcDbIndex: uniqueMember eq
+
 
 
