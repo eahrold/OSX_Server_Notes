@@ -1,5 +1,5 @@
 here's a list of modifications to do post Archive Restore
-use Directory Utility to do this. (can be done with ldapmodify*, but is a pain -- see below example)
+Use Directory Utility to do this. (can also be done with ldapmodify*, but much more tedious)
 
 ####THIS MUST BE DONE!!!
 Otherwise it will show up as a replica of itself were you to ever add a replica to the conifguration.
