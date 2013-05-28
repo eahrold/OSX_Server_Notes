@@ -57,7 +57,7 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 	altSecurityIdentities      eq,sub
 
 
-"*" you can also fix it with ldapmodify 
+\* you can also fix it with ldapmodify 
 
 do kinit diradmin
 then enter this in to the terminal 
