@@ -1,5 +1,5 @@
 here's a list of modifications to do post Archive Restore
-use Directory Utility to do this.
+use Directory Utility to do this. (can be done with ldapmodify*, but is a pain -- see below example)
 
 ####THIS MUST BE DONE!!!
 Otherwise it will show up as a replica of itself were you to ever add a replica to the conifguration.
@@ -57,13 +57,16 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 	altSecurityIdentities      eq,sub
 
 
+____  
 
 
+###\* how to fix this with ldapmodify
 
-\* you can also fix it with ldapmodify
+In your terminal do
 
-do kinit diradmin
-then enter this in to the terminal 
+	kinit diradmin
+
+then add these lines in the now open field
 
 	dn: olcDatabase={1}bdb,cn=config
 	changetype: modify
@@ -77,7 +80,8 @@ then enter this in to the terminal
 	olcDbIndex: apple-group-memberguid eq,sub
 	olcDbIndex: altSecurityIdentities eq,sub
 
-press contorl-D and you should see this 
+make sure you press enter after entering the last line then
+press contorl-D. You should see this message
 
 	modifying entry "olcDatabase={1}bdb,cn=config"
 
