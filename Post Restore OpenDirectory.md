@@ -13,7 +13,7 @@ get the GUID from  here , it's the new ID
 		-ldapreplicas
 			-XMLPlist
 
-then enter that GUID into the 
+then enter that GUID into the
 
 	Computers  
 		-my.server.com$
@@ -43,9 +43,10 @@ passwordserver should look like this... no duplicate arrays or Replica dicsts at
 		</dict>
 	</dict>
 	</plist>
+.  
+.  
 
-
-####For some reason, apple dosn't reset a few things quite right
+###For some reason, apple dosn't reset a few things quite right
 in particular apple-group-memberguid and apple-group-nestedgroup are only set with index of *eq*, but with Profile manager the need to be *sub* as well.  You will see errors in your /var/log/slapd.log like this
 
 	bdb_substring_candidates: (apple-group-nestedgroup) not indexed
