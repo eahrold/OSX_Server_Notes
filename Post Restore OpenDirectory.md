@@ -61,11 +61,11 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 
 dn: olcDatabase={1}bdb,cn=config
 changetype: modify
-delete: OLCDatabaseIndex
-OLCDatabaseIndex: uniqueMember
--
-add: OLCDatabaseIndex
-OLCDatabaseIndex: uniqueMember eq,sub
+delete: olcDbIndex
+olcDbIndex: uniqueMember eq
+
+add: olcDbIndex
+olcDbIndex: uniqueMember eq,sub
 
 
 
