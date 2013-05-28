@@ -8,11 +8,14 @@ _It also helps with successful SASL binding and a varitey of other things._
 
 First off the GUID of the Master Needs to be fixed in a couple of places.  
 
-- get the GUID from  here , it's the new ID
+get the GUID from  here , it's the new ID
 
 	Config
 		-ldapreplicas
 			-XMLPlist
+
+you could also run  
+`sudo serveradmin settings dirserv | grep GUID`
 
 then enter that GUID into the
 
