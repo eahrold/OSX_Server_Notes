@@ -59,7 +59,7 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 
 * you can also fix it with ldapmodify, but I havn't figured out how yet. 
 
-dn: olcDatabase={1}bdb,cn=OLCDatabaseIndex,cn=config
+dn: olcDatabase={1}bdb,cn=config.cn=OLCDatabaseIndex
 changetype: modify
 replace: apple-group-memberguid
 apple-group-memberguid: eq,sub
