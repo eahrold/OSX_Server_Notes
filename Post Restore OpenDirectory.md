@@ -62,7 +62,12 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 	dn: olcDatabase={1}bdb,cn=config
 	changetype: modify
 	delete: olcDbIndex
-	olcDbIndex: uniqueMember eq
+	olcDbIndex: uniqueMember
 
+	dn: olcDatabase={1}bdb,cn=config
+	changetype: modify
+	add: olcDbIndex
+	olcDbIndex: uniqueMember eq,sub
+	
 
 
