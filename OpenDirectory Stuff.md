@@ -99,7 +99,7 @@ do Control-D...  After that reindex by doing
 	sudo slapindex
 	launchctl load /System/Library/LaunchDaemons/org.openldap.slapd.plist
 
-####** if you're getting errors that say bdb_substring_candidates you want to do this
+####** if you're getting errors that say bdb\_substring\_candidates you want to do this
 	dn: olcDatabase={2}bdb,cn=config
 	changetype: modify
 	add: olcDbIndex
