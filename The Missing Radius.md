@@ -11,6 +11,8 @@
 	DEFAULTCERT=$(serveradmin settings web | grep -i web:defaultSecureSite:sslCertificateIdentifier | awk '{print $3}'|sed 's/\"//g')
 	radiusconfig -installcerts /etc/certificates/${DEFAULTCERT}.key.pem /etc/certificates/${DEFAULTCERT}.cert.pem /etc/certificates/${DEFAULTCERT}.chain.pem
 
+	radiusconfig -setconfig private_key_password Apple:UseCertAdmin
+
 #####Check that all is well...
 	radiusd -sfX
 
