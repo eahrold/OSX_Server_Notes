@@ -2,12 +2,13 @@ here's a list of modifications to do post Archive Restore
 Use Directory Utility to do this. (can also be done with ldapmodify*, but much more tedious)
 
 ####THIS MUST BE DONE!!!
-Otherwise it will show up as a replica of itself were you to ever add a replica to the conifguration.
-It also helps with SASL binding and a varitey of other things.
+When you restore from Archive, apple creates a new guid for the OD Master, but still has the old guid for the server itself.   Which leaves the LDAP database with two enteries for the same machine.  You need to fix this by updating the old machine record. Otherwise it will show up as a replica of itself (were you to ever add a replica to the conifguration).
 
-First off the GUID of the Master Needs to be fixed in a couple of places.
+_It also helps with successful SASL binding and a varitey of other things._
 
-get the GUID from  here , it's the new ID
+First off the GUID of the Master Needs to be fixed in a couple of places.  
+
+- get the GUID from  here , it's the new ID
 
 	Config
 		-ldapreplicas
