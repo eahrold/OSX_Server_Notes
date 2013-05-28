@@ -45,7 +45,7 @@ passwordserver should look like this... no duplicate arrays or Replica dicsts at
 	</plist>
 
 
-#####For some reason, apple dosn't reset a few things quite right
+####For some reason, apple dosn't reset a few things quite right
 in particular apple-group-memberguida and apple-group-nestedgroup are only set with index of *eq*, but with Profile manager the need to be *sub* as well.  You will see errors in your /var/log/slapd.log like this
 
 	bdb_substring_candidates: (apple-group-nestedgroup) not indexed
@@ -62,17 +62,17 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 do kinit diradmin
 then enter this in to the terminal 
 
-	dn: olcDatabase={1}bdb,cn=config
-	changetype: modify
-	delete: olcDbIndex
-	olcDbIndex: apple-group-nestedgroup eq
-	olcDbIndex: apple-group-memberguid eq
-	olcDbIndex: altSecurityIdentities eq
-	-
-	add: olcDbIndex
-	olcDbIndex: apple-group-nestedgroup eq,sub
-	olcDbIndex: apple-group-memberguid eq,sub
-	olcDbIndex: altSecurityIdentities eq,sub
+dn: olcDatabase={1}bdb,cn=config
+changetype: modify
+delete: olcDbIndex
+olcDbIndex: apple-group-nestedgroup eq
+olcDbIndex: apple-group-memberguid eq
+olcDbIndex: altSecurityIdentities eq
+-
+add: olcDbIndex
+olcDbIndex: apple-group-nestedgroup eq,sub
+olcDbIndex: apple-group-memberguid eq,sub
+olcDbIndex: altSecurityIdentities eq,sub
 
 press contorl-D and you should see this 
 
