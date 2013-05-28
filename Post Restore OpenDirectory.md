@@ -57,10 +57,9 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 	altSecurityIdentities      eq,sub
 
 
-____  
 
 
-###\* how to fix this with ldapmodify
+###* how to fix this with ldapmodify
 
 In your terminal do
 
