@@ -1,7 +1,7 @@
 here's a list of modifications to do post Archive Restore
 use Directory Utility to do this.
 
-These MUST BE DONE!!!
+####THIS MUST BE DONE!!!
 Otherwise it will show up as a replica of itself were you to ever add a replica to the conifguration.
 It also helps with SASL binding and a varitey of other things.
 
