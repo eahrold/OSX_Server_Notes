@@ -62,21 +62,21 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 do kinit diradmin
 then enter this in to the terminal 
 
-dn: olcDatabase={1}bdb,cn=config
-changetype: modify
-delete: olcDbIndex
-olcDbIndex: apple-group-nestedgroup eq
-olcDbIndex: apple-group-memberguid eq
-olcDbIndex: altSecurityIdentities eq
--
-add: olcDbIndex
-olcDbIndex: apple-group-nestedgroup eq,sub
-olcDbIndex: apple-group-memberguid eq,sub
-olcDbIndex: altSecurityIdentities eq,sub
+	dn: olcDatabase={1}bdb,cn=config
+	changetype: modify
+	delete: olcDbIndex
+	olcDbIndex: apple-group-nestedgroup eq
+	olcDbIndex: apple-group-memberguid eq
+	olcDbIndex: altSecurityIdentities eq
+	-
+	add: olcDbIndex
+	olcDbIndex: apple-group-nestedgroup eq,sub
+	olcDbIndex: apple-group-memberguid eq,sub
+	olcDbIndex: altSecurityIdentities eq,sub
 
 press contorl-D and you should see this 
 
 	modifying entry "olcDatabase={1}bdb,cn=config"
 
-
+you can enter any number of values in the above command if you're seeing the substring error in your slapd log
 
