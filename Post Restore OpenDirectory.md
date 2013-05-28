@@ -57,12 +57,12 @@ the easiest way is to fix this is by using Directory Editor*.  Go to your /LDAPv
 	altSecurityIdentities      eq,sub
 
 
-* you can also fix it with ldapmodify, but I havn't figured out how yet. 
+* you can also fix it with ldapmodify 
 
-dn: olcDatabase={1}bdb,cn=config.cn=OLCDatabaseIndex
-changetype: modify
-replace: apple-group-memberguid
-apple-group-memberguid: eq,sub
+	dn: olcDatabase={1}bdb,cn=config
+	changetype: modify
+	delete: olcDbIndex
+	olcDbIndex: uniqueMember eq
 
 
 
