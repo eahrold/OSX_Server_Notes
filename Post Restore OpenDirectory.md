@@ -63,7 +63,7 @@ dn: olcDatabase={1}bdb,cn=config
 changetype: modify
 delete: olcDbIndex
 olcDbIndex: uniqueMember eq
-
+-
 add: olcDbIndex
 olcDbIndex: uniqueMember eq,sub
 
