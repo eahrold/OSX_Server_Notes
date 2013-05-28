@@ -89,7 +89,7 @@ enter this text right in the window
 
 	dn: olcDatabase={1}bdb,cn=config
 	changetype: modify
-	add: olcDbIndex
+	replace: olcDbIndex
 	olcDbIndex: uniqueMember eq
 
 make sure you press enter after the last line and then 
@@ -98,3 +98,9 @@ do Control-D...  After that reindex by doing
 	launchctl unload /System/Library/LaunchDaemons/org.openldap.slapd.plist
 	sudo slapindex
 	launchctl load /System/Library/LaunchDaemons/org.openldap.slapd.plist
+
+####** if you're getting errors that say bdb_substring_candidates you want to do this
+	dn: olcDatabase={2}bdb,cn=config
+	changetype: modify
+	add: olcDbIndex
+	olcDbIndex: substring_indicated_by_error eq,sub
