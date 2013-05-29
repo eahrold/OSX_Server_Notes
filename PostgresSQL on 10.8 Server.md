@@ -1,5 +1,9 @@
 #### About PostgresSQL
 
+To make OS X a little more posix...
+
+	sudo ln -s PostgreSQL\ For\ Server\ Services/Socket/ /var/pgsql_server_socket
+
 
 and you can take a look at the avaliable tables and their owners via this
 
@@ -18,9 +22,6 @@ here's how to wipe the Profile Manager
 	 /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
 
 
- To make OS X a little more posix...
-
-	 sudo ln -s PostgreSQL\ For\ Server\ Services/Socket/ /var/pgsql_server_socket
 
 
 	 sudo ./pg_dumpall  -h /var/pgsql_server_socket --username=_postgres > ~/Desktop/pg_all.sql
