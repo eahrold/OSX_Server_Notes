@@ -49,6 +49,25 @@ passwordserver should look like this... no duplicate arrays or Replica dicsts at
 	</plist>
 .  
 .  
+###If you have an OD server with Multiple interfaces in a NAT environment
+you will need to create a certificate with both interfaces listed 
+*using server app go to "create a Trusted Certificate"
+*make sure the check box of "let me override defaults" is checked
+
+1. Identity Type "Leaf"
+
+2. Continue along making changes to "Certificate Information" if you wish, but don't change anything else
+
+3. at "Subject Alternate Name" add all of you Server's IP's in the iPAddress field with spaces seperating them
+
+4. and make sure the dNSName is correct*
+
+5. click continue... and if all goes well Server admin will ask you if you want to export the key.  click "Always Allow"  
+
+6. Change the services to use the new Certificate.  
+		
+.  
+.  
 
 ###For some reason, apple dosn't reset a few things quite right
 in particular apple-group-memberguid and apple-group-nestedgroup are only set with index of *eq*, but with Profile manager the need to be *sub* as well.  You will see errors in your /var/log/slapd.log like this
