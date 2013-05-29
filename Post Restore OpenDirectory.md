@@ -55,7 +55,7 @@ in particular apple-group-memberguid and apple-group-nestedgroup are only set wi
 
 	bdb_substring_candidates: (apple-group-nestedgroup) not indexed
 
-the easiest way is to fix this is by using Directory Editor*.   Go to your /LDAPv3/127.0.0.1, login as diradmin, then navigate to the OLCDBDConfig.  Go to your dc=my,dc=server,dc=com  find the value for each of the following and change to what's here
+the easiest way is to fix this is by using Directory Editor\*.   Go to your /LDAPv3/127.0.0.1, login as diradmin, then navigate to the OLCDBDConfig.  Go to your dc=my,dc=server,dc=com  find the value for each of the following and change to what's here
 
 	apple-group-nestedgroup    eq,sub
 	apple-group-memberguid     eq,sub
