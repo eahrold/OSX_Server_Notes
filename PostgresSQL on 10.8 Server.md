@@ -1,6 +1,6 @@
 #### About PostgresSQL
 
-To make OS X a little more posix...
+First off make OS X Server a little more posix friendly...
 
 	sudo ln -s PostgreSQL\ For\ Server\ Services/Socket/ /var/pgsql_server_socket
 
