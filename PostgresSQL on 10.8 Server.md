@@ -4,15 +4,17 @@ First off make OS X Server a little more posix friendly...
 
 	sudo ln -s /Library/Server/PostgreSQL\ For\ Server\ Services/Socket/ /var/pgsql_server_socket
 
+when you're working with the server postgres you'll want to use the provided postgres install so...
+
+	cd /Applications/Server.app/Contents/ServerRoot/usr/bin
 
 and you can take a look at the avaliable tables and their owners via this
 
-	sudo psql -h /var/pgsql_server_socket -U _postgres --list
+	sudo ./psql -h /var/pgsql_server_socket -U _postgres --list
 
 	serveradmin start postgres_server
 then back up the db's
 
-	cd /Applications/Server.app/Contents/ServerRoot/usr/bin
 	 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 	 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql  
   
@@ -28,6 +30,8 @@ here's how to wipe the Profile Manager
 
 	 sudo serveradmin stop postgres_server
 	 sudo serveradmin start postgres_server
+
+then to restore
 
 	 sudo ./createdb -h /var/pgsql_server_socket -U _postgres postgres
 	 sudo ./psql -h /var/pgsql_server_socket -U _postgres -f ~/Desktop/pg_all.sql
