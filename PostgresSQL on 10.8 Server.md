@@ -7,7 +7,7 @@ First off make OS X Server a little more posix friendly...
 
 and you can take a look at the avaliable tables and their owners via this
 
-	sudo psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _postgres --list
+	sudo psql -h //var/pgsql_server_socket -U _postgres --list
 
 	serveradmin start postgres_server
 then back up the db's
