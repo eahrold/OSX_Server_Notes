@@ -1,5 +1,5 @@
-here's a list of modifications to do post Archive Restore
-Use Directory Utility to do this. (can also be done with ldapmodify*, but much more tedious)
+##here's a list of modifications to do post Archive Restore
+These are base on 10.8 sever.  Use Directory Utility to do this. (can also be done with ldapmodify*, but much more tedious)
 
 ####THIS MUST BE DONE!!!
 When you restore from Archive, apple creates a new guid for the OD Master, but still has the old guid for the server itself.   Which leaves the LDAP database with two enteries for the same machine.  You need to fix this by updating the old machine record. Otherwise it will show up as a replica of itself (were you to ever add a replica to the conifguration).
@@ -69,6 +69,7 @@ the easiest way is to fix this is by using Directory Editor\*.   Go to your /LDA
 In your terminal do
 
 	kinit diradmin
+	ldapmodify
 
 then add these lines in the now open field
 
@@ -91,3 +92,25 @@ press contorl-D. You should see this message
 
 you can enter any number of values in the above command if you're seeing the substring error in your slapd log
 
+
+I also was seeing these errors 
+
+	slapd[41150]: <= bdb_equality_candidates: (apple-transactionID) not indexed
+	slapd[41150]: <= bdb_equality_candidates: (apple-serialNumber) not indexed
+	slapd[41150]: <= bdb_equality_candidates: (apple-issuer) not indexed
+
+here's the ldapmodify entry to fix those...
+
+	dn: olcDatabase={1}bdb,cn=config
+	changetype: modify
+	add: olcDbIndex
+	olcDbIndex: apple-transactionID eq
+	olcDbIndex: apple-serialNumber eq
+	olcDbIndex: apple-issuer eq
+
+
+helpful links
+	
+1. [oracle ldapmodify](http://docs.oracle.com/cd/E19528-01/819-0995/6n3cq3apv/index.html)  
+2. [tldp.org](http://tldp.org/HOWTO/LDAP-HOWTO/utilities.html)  
+3. []()
