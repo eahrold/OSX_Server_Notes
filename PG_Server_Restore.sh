@@ -8,6 +8,7 @@
 ## ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 ##./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql
 
+##   !!!!! don't use this script.   There are no checks included... It just bulldozes throught. 
 
 $1 = $FILE_PATH
 
@@ -21,16 +22,17 @@ serveradmin start postgres_server
 
 
 PGDIR="/Applications/Server.app/Contents/ServerRoot/usr/bin"
+BK_FILE_Dir="~/Desktop/"
 
 ## gotta love apple for not being posix complient e.g. /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -- nices spaces!
 
 $PGDIR/dropdb -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U caldav caldav
 $PGDIR/createdb -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U caldav caldav
-$PGDIR/psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U caldav caldav -f ~/Desktop/caldav.sql
+$PGDIR/psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U caldav caldav -f $BK_FILE_Dir/caldav.sql
 
 $PGDIR/dropdb -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _devicemgr device_management
 $PGDIR/createdb -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _devicemgr device_management
-$PGDIR/psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _devicemgr device_management -f ~/Desktop/device_management.sql
+$PGDIR/psql -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket -U _devicemgr device_management -f $BK_FILE_Dir/device_management.sql
 
 serveradmin start calendar
 serveradmin start devicemgr
