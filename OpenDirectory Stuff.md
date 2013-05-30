@@ -49,7 +49,11 @@ place the reutrned values in this command
 
 
 #### Check you SSL connection to the OD server
-	openssl s_client -connect myServerName:636
+	openssl s_client -connect your.server.com:636
+and this will do check the StartTLS request
+
+	kinit diradmin
+	ldapsearch -h your.server.com -p 389 -ZZ -b "dc=your,dc=server,dc=com" -s base "(objectClass=*)"
 
 to keep an eye on things
 
