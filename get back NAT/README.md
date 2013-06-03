@@ -4,7 +4,7 @@ you may also need to do this for testing
 
 	sudo sysctl -w net.inet.ip.forwarding=1 
 
-.
+.  
 and edit you /etc/sysctl.conf file to include this for a more perminant setting
 
 	net.inet.ip.forwarding=1
