@@ -6,5 +6,6 @@ you may also need to do
 for testing
 
 and edit you /etc/sysctl.conf file to include 
+
 	net.inet.ip.forwarding=1
 for a more perminant setting
