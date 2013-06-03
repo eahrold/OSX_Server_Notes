@@ -1,0 +1,4 @@
+externale_interface = "en0"
+internal_interface = "en2"
+
+nat on $externale_interface inet from $internal_interface:network to any -> ($externale_interface)

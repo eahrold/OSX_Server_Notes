@@ -1,0 +1,44 @@
+#
+# com.apple ruleset, referred to by the default /etc/pf.conf file.
+# See notes in that file regarding the anchor point in the main ruleset.
+#
+# Copyright (c) 2011 Apple Inc. All rights reserved.
+#
+
+#
+# Scrub rules come first
+#
+scrub-anchor "900.NATrules/*"
+scrub-anchor "300.NetworkLinkConditioner/*"
+scrub in all fragment reassemble
+#
+
+# Internet Sharing anchor point.
+#
+nat-anchor "900.NATrules/*"
+rdr-anchor "900.NATrules/*"
+anchor "900.NATrules/*"
+load anchor "900.NATrules" from "/etc/pf.anchors/900.NATrules"
+
+#
+# AirDrop anchor point.
+#
+anchor "200.AirDrop/*"
+
+#
+# Application Firewall anchor point.
+#
+anchor "250.ApplicationFirewall/*"
+
+#
+# Network Link Conditioner anchor point.
+#
+dummynet-anchor "300.NetworkLinkConditioner/*"
+anchor "300.NetworkLinkConditioner/*"
+
+#
+# Adaptive Firewall anchor point.
+#
+anchor "400.AdaptiveFirewall/*"
+load anchor "400.AdaptiveFirewall" from "/Applications/Server.app/Contents/ServerRoot/private/etc/pf.anchors/400.AdaptiveFirewall"
+
