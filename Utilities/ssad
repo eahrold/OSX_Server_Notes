@@ -1,6 +1,8 @@
 #!/bin/bash
 
 ##  Make the server admin commands make a little more sense
+##  This will automatically run with sudo, and you can "restart" a service
+
 #set -exv
 [[ ! `which serveradmin` ]] && echo serveradmin is not in your PATH, please update that before runing ssad && exit 1;
 __ssad="sudo serveradmin"
