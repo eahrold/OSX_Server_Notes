@@ -1,0 +1,41 @@
+#!/bin/bash
+
+##  Make the server admin commands make a little more sense
+#set -exv
+[[ ! `which serveradmin` ]] && echo serveradmin is not in your PATH, please update that before runing ssad && exit 1;
+__ssad="sudo serveradmin"
+
+__usage__(){
+clear
+more << EOF
+Usage: 
+    ssad start cmd
+    ssad stop cmd
+    ssad restart cmd
+    ssad settings cmd match
+    ssad cmd
+    
+    "cmd" is anything you would normally pass to serveradmin
+    "match" will grep the settings results
+EOF
+
+exit 1
+}
+
+__main__(){    
+    case $1 in
+        start)   $__ssad start $2;;
+        stop)    $__ssad stop $2;;
+        restart) $__ssad stop $2; $__ssad start $2;;
+        settings)    $__ssad settings $2 | grep -i "$3";; 
+        sudo)    $ssad ${@};;
+        ?|"")       __usage__;;
+        *)       $__ssad ${@};;
+    esac
+}
+
+
+
+__main__ ${@}
+
+exit 0
