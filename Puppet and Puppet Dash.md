@@ -13,7 +13,7 @@ Fix overwhelmed delayed_jobs
 	
 	mysql -u dashboard -p
 	USE dashboard SELECT * FROM sys.Tables
-	TRUNCATE TABLE delayed_jobs
+	TRUNCATE TABLE delayed_jobs;
 
 
 ###Homebrew MySQL
