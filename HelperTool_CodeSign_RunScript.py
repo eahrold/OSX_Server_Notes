@@ -5,14 +5,13 @@ import subprocess
 import plistlib
 
 ##### begin editing
-app_id = "com.eeaapps.blerg"
-helper_id ="com.eeaapps.blerg.helper"
+app_id = "com.app-name.blerg"
+helper_id ="com.app-name.blerg.helper"
 
 helper_info = 'helper/helper-Info.plist'
 helper_launchd = 'helper/helper-Launchd.plist'
-
-
 ##### end editing
+
 
 def getCodeSignIdentity():
     build_dir = os.getenv('BUILT_PRODUCTS_DIR')
@@ -78,10 +77,8 @@ def checkVar(var):
 def main():
     ### Configure info from environment
     project_path = os.getenv('PROJECT_DIR')
-
-    ### setup helper paths
     cert_id = getCodeSignIdentity()
-
+    ### write out to the helper tool
     editAppInfoPlist(cert_id)
     editHelperInfoPlist(cert_id,project_path)
     editHelperLaunchD(project_path)
