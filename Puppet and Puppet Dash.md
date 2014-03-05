@@ -14,7 +14,12 @@ Fix overwhelmed delayed_jobs
 	mysql -u dashboard -p
 	USE dashboard SELECT * FROM sys.Tables
 	TRUNCATE TABLE delayed_jobs;
-
+	
+if getting MySQL lock error edit the /etc/my.cnf 
+```
+innodb_lock_wait_timeout = 500
+```
+500 seems to get the job done.
 
 ###Homebrew MySQL
 
