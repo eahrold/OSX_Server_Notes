@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>RAILS_ENV</key>
+		<string>production</string>
+	</dict>
+	<key>Label</key>
+	<string>com.puppetdash.report.prune</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/bin/rake</string>
+		<string>reports:prune</string>
+		<string>upto=2</string>
+		<string>unit=day</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/var/log/puppetdash/puppetdash.log</string>
+	<key>StandardOutPath</key>
+	<string>/var/log/puppetdash/puppetdash.log</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>2</integer>
+	</dict>
+	<key>UserName</key>
+	<string>puppet-dashboard</string>
+	<key>WorkingDirectory</key>
+	<string>/usr/local/www/puppet-dashboard/</string>
+</dict>
+</plist>
