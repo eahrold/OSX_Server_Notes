@@ -1,3 +1,10 @@
+#### in 10.9 the upgrade forgets to do one simple thing which breaks kerberos
+```
+sudo touch /var/db/openldap/migration/.rekerberize
+sudo killall PasswordService
+```
+fixes it
+
 ####Make Sure you copy the Intermediate Certificate from the Master to The Replica and vice versa, before enabling SSL  
 ML server 2.2.1 only copies things one way.
 
@@ -9,26 +16,28 @@ If you're going to be using the MDM Services for remote management, the OD maste
 #### slapconfig is your friend, and gives you a bit more control of how things are set up.  and a wealth of information on what's being done
 in fact you could theoretically reverse engeneer slapconfig and run all of the commmands individually
 
-	sudo slapconfig -createldapmasterandadmin --allow_local_realm --certAuthName "My Server Cert Auth" --certAdminEmail admin@myserver.com --certOrgName "My Server Unit" diradmin "Directory Admin" 1000 dc=my,dc=server,dc=com MY.SERVER.COM
+```
+sudo slapconfig -createldapmasterandadmin --allow_local_realm --certAuthName "My Server Cert Auth" --certAdminEmail admin@myserver.com --certOrgName "My Server Unit" diradmin "Directory Admin" 1000 dc=my,dc=server,dc=com MY.SERVER.COM
+```
 
 also this if you need to recreate your root certificates.
 
-	sudo slapconfig -createrootcertauthority "My Server Cert Auth" admin@myserver.com "My Server Unit"
+    sudo slapconfig -createrootcertauthority "My Server Cert Auth" admin@myserver.com "My Server Unit"
 
 
 You also will want to make sure you bi-directional replicas set on your master and replica
 run this command on both your master and replica
 
-	sudo slapconfig -getmasterconfig
+    sudo slapconfig -getmasterconfig
 
 it should look like this on the master/replica
-
-	Master LDAP server
-	Updated: 2013-05-25 20:20:29 +0000
+```
+Master LDAP server
+Updated: 2013-05-25 20:20:29 +0000
 	
-	List Of Replicas
-	replica.server.com - OK
-
+List Of Replicas
+replica.server.com - OK
+````
 if you replica dosn't have a "List of replicas", you can add it by doing this
 first get the guid of ther server and the serverID
 
