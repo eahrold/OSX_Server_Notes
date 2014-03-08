@@ -30,8 +30,8 @@ here's how to wipe the Profile Manager
 
 sudo ./pg_dumpall  -h /var/pgsql_server_socket --username=_postgres > ~/Desktop/pg_all.sql
 
- sudo serveradmin stop postgres_server
- sudo serveradmin start postgres_server
+sudo serveradmin stop postgres_server
+sudo serveradmin start postgres_server
 ```
 then to restore
 ```shell
