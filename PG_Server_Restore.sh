@@ -8,6 +8,11 @@
 ## ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 ##./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql
 
+
+#on 10.9 caldav is dynamic so use find to locate the actual dir it's a little different
+#CALDAV_SQL=`find /var/run/caldavd -name ccs_postgres_*`
+#./pg_dump -h ${CALDAV_SQL} --username=caldav caldav > ~/Desktop/caldav.sql
+
 ##   !!!!! don't use this script.   There are no checks included... It just bulldozes throught. 
 
 $1 = $FILE_PATH
