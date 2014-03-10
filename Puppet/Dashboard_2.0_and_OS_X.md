@@ -67,6 +67,7 @@ bundle install --path vendor/bundle
 echo "secret_token: '$(bundle exec rake secret)'" 
 bundle exec rake db:setup
 bundle exec rails server
+RAILS_ENV=production bundle exec rake assets:precompile
 ```
 
 if you get a "can't find rails" error at ```bundle exec rake db:setup``` you may need to run
