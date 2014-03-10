@@ -22,7 +22,7 @@ sudo dseditgroup -o edit -a puppetdashboard -t user puppetdashboard
 
 ####set the rvm group to include puppetdashboard user
 ```
-sudo dseditgroup -o edit -a rvm -t user puppetdashboard
+sudo dseditgroup -o edit -a puppetdashboard -t user rvm
 ```
 
 then  
