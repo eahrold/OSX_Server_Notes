@@ -70,12 +70,7 @@ bundle exec rails server
 RAILS_ENV=production bundle exec rake assets:precompile
 ```
 
-if you get a "can't find rails" error at ```bundle exec rake db:setup``` you may need to run
-```
-gem install rails
-```
-
-####then to get phusion passenger up and running  (adjust the ruby version) 
+####then to get phusion passenger up and running  (adjust the ruby version)   
 ```
 /usr/local/rvm/gems/ruby-2.1.1/bin/passenger-install-apache2-module
 ```
