@@ -1,5 +1,10 @@
 Puppet Dash 2.0 on os x...
 
+####make sure you've got the xcode cli tools installed in a common location.
+```
+xcode-select --install
+```
+
 ####Install rvm in a multi-user mode
 ```
 \curl -sSL https://get.rvm.io | sudo bash -s stable
@@ -31,8 +36,9 @@ sudo su
 su puppetdashboard
 
 rvm install ruby
+
 \\then set ruby to use it
- rvm use ruby-2.1.1  // or which ever one was downloaded above
+rvm use ruby-2.1.1  // or which ever one was downloaded above
 ```
 
 Need to make sure you libxml2 ... get from homebrew  
@@ -60,11 +66,7 @@ bundle exec rake db:setup
 bundle exec rails server
 ```
 
-####then to get phusion passenger up and running 
-make sure you've got the xcode cli tools installed in a common location.
-```
-xcode-select --install
-```
+####then to get phusion passenger up and running   
 ```
 /usr/local/www/gems/bin/passenger-install-apache2-module
 ```
