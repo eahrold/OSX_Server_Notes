@@ -5,7 +5,7 @@
 xcode-select --install
 ```
 
-####Install rvm in a multi-user mode (! make sure you're NOT logged in as root!)
+####Install rvm in a multi-user mode (! make sure you're NOT logged in as root!)  
 ```
 \curl -sSL https://get.rvm.io | sudo bash -s stable
 ```
@@ -17,7 +17,7 @@ rvm get stable
 rvm cleanup all
 ```
 
-####create a puppet-dashboard user and group
+####create a puppet-dashboard user and group  
 ```
 sudo dscl . create /Users/puppetdashboard home /bin/bash
 sudo dscl . create /Users/puppetdashboard passwd *
