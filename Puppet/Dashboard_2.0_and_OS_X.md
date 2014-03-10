@@ -5,7 +5,7 @@
 xcode-select --install
 ```
 
-####Install rvm in a multi-user mode
+####Install rvm in a multi-user mode (! make sure you're NOT logged in as root!)
 ```
 \curl -sSL https://get.rvm.io | sudo bash -s stable
 ```
@@ -58,7 +58,10 @@ and set usename/password/db name etc. in the config/databse.yaml
 IMPORTANT: (as of this writing)must also add "host: localhost"  to the puppet-dashboard config/database.yaml
 
 then follow the dashboard instructions  
+download puppet-dashboard form sodabrew and install in /usr/local/www/ (or per your environment)
 ```
+cd /usr/local/www/puppet-dashboard/
+
 gem install bundler
 bundle install --path vendor/bundle
 echo "secret_token: '$(bundle exec rake secret)'" 
@@ -66,7 +69,12 @@ bundle exec rake db:setup
 bundle exec rails server
 ```
 
-####then to get phusion passenger up and running   
+if you get a "can't find rails" error at ```bundle exec rake db:setup``` you may need to run
 ```
-/usr/local/www/gems/bin/passenger-install-apache2-module
+gem install rails
+```
+
+####then to get phusion passenger up and running  (adjust the ruby version) 
+```
+/usr/local/rvm/gems/ruby-2.1.1/bin/passenger-install-apache2-module
 ```
