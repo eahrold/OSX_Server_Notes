@@ -25,7 +25,7 @@ sudo dseditgroup -o create -n . puppet-dashboard
 sudo dseditgroup -o edit -a puppet-dashboard -t user puppet-dashboard
 ```
 
-####set the rvm group to include puppetdashboard user  
+####set the rvm group to include puppetdashboard and puppet user  
 ```
 sudo dseditgroup -o edit -a puppet-dashboard -t user rvm
 sudo dseditgroup -o edit -a puppet -t user rvm
@@ -36,6 +36,8 @@ then install ruby and set version to use...
 sudo su
 su puppetdashboard
 
+// make sure openssl gets installed for rvm
+rvm pkg install openssl
 rvm install ruby
 rvm use ruby-2.1.1  // or which ever one was downloaded above
 ```
@@ -52,7 +54,7 @@ sudo createdb -U _postgres dashboard
 sudo psql -d dashboard -U _postgres // gets you into psql
 
 CREATE USER dashboard WITH PASSWORD 'mydashpass';
-GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard
+GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard;
 ```
 
 and set usename/password/db name etc. in the config/databse.yaml
