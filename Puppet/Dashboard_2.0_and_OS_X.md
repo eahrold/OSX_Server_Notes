@@ -30,7 +30,7 @@ sudo dseditgroup -o edit -a puppetdashboard -t user puppetdashboard
 sudo dseditgroup -o edit -a puppetdashboard -t user rvm
 ```
 
-then  
+then install ruby and set version to use...  
 ```
 sudo su
 su puppetdashboard
