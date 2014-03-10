@@ -70,9 +70,9 @@ cd puppet-dashboard
 gem install bundler
 bundle install --path vendor/bundle
 echo "secret_token: '$(bundle exec rake secret)'" 
-bundle exec rake db:setup
-bundle exec rails server
+RAILS_ENV=bundle exec rake db:setup
 RAILS_ENV=production bundle exec rake assets:precompile
+RAILS_ENV=bundle exec rails server
 ```
 
 ####then to get phusion passenger up and running  (adjust the ruby version)   
