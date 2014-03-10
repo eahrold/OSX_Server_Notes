@@ -36,18 +36,17 @@ sudo su
 su puppetdashboard
 
 rvm install ruby
-
-\\then set ruby to use it
 rvm use ruby-2.1.1  // or which ever one was downloaded above
 ```
 
-Need to make sure you libxml2 ... get from homebrew  
+Get libxml2 ... get from homebrew  
 ```
 brew install libxml2
 ```
 
-set up postgres:  
+set up PostgresDB (mavericks):  
 ```
+sudo serveradmin start postgres
 sudo createdb -U _postgres dashboard
 sudo psql -d dashboard -U _postgres // gets you into psql
 
@@ -55,7 +54,8 @@ CREATE USER dashboard WITH PASSWORD 'mydashpass';
 GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard
 ```
 
-Must add  "host: localhost"  to database.yaml
+and set usename/password/db name etc. in the config/databse.yaml
+IMPORTANT: (as of this writing)must also add "host: localhost"  to the puppet-dashboard config/database.yaml
 
 then follow the dashboard instructions  
 ```
