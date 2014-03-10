@@ -25,7 +25,7 @@ sudo dseditgroup -o create -n . puppetdashboard
 sudo dseditgroup -o edit -a puppetdashboard -t user puppetdashboard
 ```
 
-####set the rvm group to include puppetdashboard user
+####set the rvm group to include puppetdashboard user  
 ```
 sudo dseditgroup -o edit -a puppetdashboard -t user rvm
 ```
