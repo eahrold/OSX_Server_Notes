@@ -1,6 +1,6 @@
 ###Puppet Dash 2.0 on os x...
 
-####make sure you've got the xcode cli tools installed in a common location.
+####make sure you've got the xcode cli tools installed in a common location.  
 ```
 xcode-select --install
 ```
