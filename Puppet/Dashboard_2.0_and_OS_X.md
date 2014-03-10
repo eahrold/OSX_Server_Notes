@@ -57,8 +57,6 @@ CREATE USER dashboard WITH PASSWORD 'mydashpass';
 GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard;
 ```
 
-and set usename/password/db name etc. in the config/databse.yaml
-IMPORTANT: (as of this writing)must also add "host: localhost"  to the puppet-dashboard config/database.yaml
 
 then follow the dashboard instructions  
 download puppet-dashboard form sodabrew and install in /usr/local/www/ (or per your environment)
@@ -69,7 +67,16 @@ cd puppet-dashboard
 
 gem install bundler
 bundle install --path vendor/bundle
-echo "secret_token: '$(bundle exec rake secret)'" 
+
+// config the database file
+cp config/database.yml.example  
+//set to the pgsql user and db above
+//IMPORTANT: (as of this writing)must also add "host: localhost"  to the puppet-dashboard config/database.yaml
+
+
+
+cp config/settings.yml.example config/settings.yml
+echo "secret_token: '$(bundle exec rake secret)'" > config/settings.yml 
 RAILS_ENV=production bundle exec rake db:setup
 RAILS_ENV=production bundle exec rake assets:precompile
 
