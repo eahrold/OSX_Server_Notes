@@ -14,6 +14,7 @@ rvm cleanup all
 ```
 
 then
+
 ```
 rvm install ruby
 \\then set ruby to use it
