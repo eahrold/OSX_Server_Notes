@@ -19,15 +19,16 @@ rvm cleanup all
 
 ####create a puppet-dashboard user and group  
 ```
-sudo dscl . create /Users/puppetdashboard home /bin/bash
-sudo dscl . create /Users/puppetdashboard passwd *
-sudo dseditgroup -o create -n . puppetdashboard
-sudo dseditgroup -o edit -a puppetdashboard -t user puppetdashboard
+sudo dscl . create /Users/puppet-dashboard home /bin/bash
+sudo dscl . create /Users/puppet-dashboard passwd *
+sudo dseditgroup -o create -n . puppet-dashboard
+sudo dseditgroup -o edit -a puppet-dashboard -t user puppet-dashboard
 ```
 
 ####set the rvm group to include puppetdashboard user  
 ```
-sudo dseditgroup -o edit -a puppetdashboard -t user rvm
+sudo dseditgroup -o edit -a puppet-dashboard -t user rvm
+sudo dseditgroup -o edit -a puppet -t user rvm
 ```
 
 then install ruby and set version to use...  
@@ -60,7 +61,9 @@ IMPORTANT: (as of this writing)must also add "host: localhost"  to the puppet-da
 then follow the dashboard instructions  
 download puppet-dashboard form sodabrew and install in /usr/local/www/ (or per your environment)
 ```
-cd /usr/local/www/puppet-dashboard/
+cd /usr/local/www/
+git clone https://github.com/sodabrew/puppet-dashboard.git
+cd puppet-dashboard
 
 gem install bundler
 bundle install --path vendor/bundle
