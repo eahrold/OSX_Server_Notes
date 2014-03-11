@@ -77,7 +77,6 @@ cp config/settings.yml.example config/settings.yml
 echo "secret_token: '$(bundle exec rake secret)'" > config/settings.yml 
 // for the most part everywhere it says 'puppet' you will change to your FQDN
 
-
 RAILS_ENV=production bundle exec rake db:setup
 RAILS_ENV=production bundle exec rake assets:precompile
 
