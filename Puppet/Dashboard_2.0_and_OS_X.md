@@ -41,17 +41,6 @@ rvm pkg install openssl
 rvm install ruby
 rvm use ruby-2.1.1  // or which ever one was downloaded above
 ```
-Generating Certs and Connecting to the Puppet Master
-
-Puppet uses SSL certificates to control who can make requests to the puppet master, so Dashboard has to obtain a signed cert before asking for facts or files. To do this, edit config/settings.yml to ensure that the ca_server and ca_port settings match the address and port of your puppet master, then run the following commands:  
-```
-$ sudo -u puppet-dashboard rake cert:create_key_pair
-$ sudo -u puppet-dashboard rake cert:request
-```
-You’ll need to sign the certificate request on the master by running puppet cert sign dashboard. Then, from Dashboard’s directory again, run:  
-```
-$ sudo -u puppet-dashboard rake cert:retrieve
-```
 
 Get libxml2 ... get from homebrew  
 ```
@@ -94,6 +83,17 @@ RAILS_ENV=production bundle exec rake assets:precompile
 
 //test it out 
 bundle exec rails server
+```
+
+####Generating Certs and Connecting to the Puppet Master
+
+```
+$ sudo -u puppet-dashboard rake cert:create_key_pair
+$ sudo -u puppet-dashboard rake cert:request
+```
+You’ll need to sign the certificate request on the master by running puppet cert sign dashboard. Then, from Dashboard’s directory again, run:  
+```
+$ sudo -u puppet-dashboard rake cert:retrieve
 ```
 
 ####then to get phusion passenger up and running  (adjust the ruby version)   
