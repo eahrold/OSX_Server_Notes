@@ -1,7 +1,7 @@
 ###Things to remember When installing puppet and Puppet Dash
 
 
-When Running under passenger, the puppet user needs to have a home directory set to /dev/null
+When Running under passenger, the puppet user needs to have a home directory set at least to /dev/null
 otherwise you could get errors about "could not set global defaults..."
 
 Puppet Install
