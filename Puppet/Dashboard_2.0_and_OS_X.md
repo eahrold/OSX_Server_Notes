@@ -19,7 +19,7 @@ rvm cleanup all
 
 ####create a puppet-dashboard user and group  
 ```
-sudo dscl . create /Users/puppet-dashboard home /bin/bash
+sudo dscl . create /Users/puppet-dashboard home /dev/null
 sudo dscl . create /Users/puppet-dashboard passwd *
 sudo dseditgroup -o create -n . puppet-dashboard
 sudo dseditgroup -o edit -a puppet-dashboard -t user puppet-dashboard
@@ -34,7 +34,7 @@ sudo dseditgroup -o edit -a puppet -t user rvm
 then install ruby and set version to use...  
 ```
 sudo su
-su puppetdashboard
+su puppet-dashboard
 
 // make sure openssl gets installed for rvm
 rvm pkg install openssl
