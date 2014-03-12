@@ -18,11 +18,11 @@ rvm cleanup all
 ```
 
 ####create a puppet-dashboard user and group  
-```
+```  
 sudo dscl . create /Users/puppet-dashboard home /dev/null
 sudo dscl . create /Users/puppet-dashboard passwd *
 sudo dseditgroup -o create -n . puppet-dashboard
-sudo dseditgroup -o edit -a puppet-dashboard -t user puppet-dashboard
+sudo dseditgroup -o edit -a puppet-dashboard -t user puppet-dashboard  
 ```
 
 ####set the rvm group to include puppetdashboard and puppet user  
@@ -48,14 +48,14 @@ brew install libxml2
 ```
 
 set up PostgresDB (mavericks):  
-```
+```  
 sudo serveradmin start postgres
 sudo createdb -U _postgres dashboard
-sudo psql -d dashboard -U _postgres // gets you into psql
+sudo psql -d dashboard -U _postgres // gets you into psql  
 
 CREATE USER dashboard WITH PASSWORD 'mydashpass';
-GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard;
-```
+GRANT ALL PRIVILEGES ON DATABASE dashboard to dashboard;  
+```  
 
 then follow the dashboard instructions  
 download puppet-dashboard form sodabrew and install in /usr/local/www/ (or per your environment)
