@@ -95,6 +95,13 @@ You’ll need to sign the certificate request on the master by running puppet ce
 $ sudo -u puppet-dashboard rake cert:retrieve
 ```
 
+you'll also want to insure that the dashboard's bin/external_node file is set correctly.
+change the DASHBOAR_URL to the url the master will connect to (it only applies to the master!) 
+```
+DASHBOARD_URL = "http://localhost:4000"
+```  
+you will also want to change any other settings in this file according to your env. 
+
 ####then to get phusion passenger up and running  (adjust the ruby version)   
 ```
 // do some maintenance... 
