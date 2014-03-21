@@ -87,12 +87,12 @@ bundle exec rails server
 ####Generating Certs and Connecting to the Puppet Master
 
 ```
-$ sudo -u puppet-dashboard rake cert:create_key_pair
-$ sudo -u puppet-dashboard rake cert:request
+$ sudo -u puppet-dashboard RAILS_ENV=production bundle exec rake cert:create_key_pair
+$ sudo -u puppet-dashboard RAILS_ENV=production bundle exec rake cert:request
 ```
 You’ll need to sign the certificate request on the master by running puppet cert sign dashboard. Then, from Dashboard’s directory again, run:  
 ```
-$ sudo -u puppet-dashboard rake cert:retrieve
+$ sudo -u puppet-dashboard RAILS_ENV=production bundle exec rake cert:retrieve
 ```  
 
 you'll also want to insure that the dashboard's bin/external_node file is set correctly.
