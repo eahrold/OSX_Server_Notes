@@ -18,10 +18,15 @@ then back up the db's
 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=caldav caldav > ~/Desktop/caldav.sql
 ./pg_dump -h /Library/Server/PostgreSQL\ For\ Server\ Services/Socket --username=_devicemgr device_management > ~/Desktop/device_management.sql  
 ```
-on 10.9 caldav is dynamic so use find to locate the actual dir it's a little different
+on Server 3.0 caldav is dynamic so use find to locate the actual dir it's a little different
 ```shell
 CALDAV_SQL=`find /var/run/caldavd -name ccs_postgres_*`
-./pg_dump -h ${CALDAV_SQL} --username=caldav caldav > ~/Desktop/caldav.sql
+./pg_dump -h ${CALDAV_SQL} --username=caldav caldav > ~/Desktop/caldav_`date +%m%d%y%H%M`.sql
+```
+
+but then they switched back to a static location on server 3.1
+```
+sudo pg_dump -h /var/run/caldavd/PostgresSocket/ --username=caldav caldav > ~/Desktop/caldav_`date +%m%d%y%H%M`.sql
 ```
 
 here's how to wipe the Profile Manager
