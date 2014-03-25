@@ -29,6 +29,19 @@ but then they switched back to a static location on server 3.1
 sudo pg_dump -h /var/run/caldavd/PostgresSocket/ --username=caldav caldav > ~/Desktop/caldav_`date +%m%d%y%H%M`.sql
 ```
 
+and incase you need to kill all the connections before restoring
+```
+psql -h /var/run/caldavd/PostgresSocket/ --username=caldav
+
+	caldav=# select pg_terminate_backend(pid) from pg_stat_activity where datname='YourDatabase';
+	caldav=# \q
+
+sudo dropdb -h /var/run/caldavd/PostgresSocket/ -U caldav caldav
+sudo createdb -h /var/run/caldavd/PostgresSocket/ -U caldav caldav
+sudo psql -h /var/run/caldav/PostgresSocket/ -U caldav caldav -f /path/to/pgsql/file.sql
+```
+
+
 here's how to wipe the Profile Manager
 ```shell
 /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
