@@ -33,7 +33,7 @@ and incase you need to kill all the connections before restoring
 ```
 psql -h /var/run/caldavd/PostgresSocket/ --username=caldav
 
-	caldav=# select pg_terminate_backend(pid) from pg_stat_activity where datname='YourDatabase';
+	caldav=# select pg_terminate_backend(pid) from pg_stat_activity where datname='caldav';
 	caldav=# \q
 
 sudo dropdb -h /var/run/caldavd/PostgresSocket/ -U caldav caldav
