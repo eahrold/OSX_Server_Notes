@@ -21,7 +21,8 @@ automount for login window access.
 								and your server uses a self signed 	
 								certificate to do the encryption,
 								copy and paste the cert in this box
-	
+
+
 you can get self signed cert using  
 ```
  openssl s_client -connect your.ldap.server:636 -showcerts
