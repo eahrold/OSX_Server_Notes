@@ -22,12 +22,12 @@ automount for login window access.
 								certificate to do the encryption,
 								copy and paste the cert in this box
 	
-	you can get the certs using  
+	you can get self signed cert using  
 	```
 	 openssl s_client -connect your.ldap.server:636 -showcerts
-	```
+	```  
 	then copy and paste from the first "-----BEGIN CERTIFICATE-----"
-	to the last "-----END CERTIFICATE-----"
+	to the last "-----END CERTIFICATE-----"  
 	
 	there will most likely be more than one since it a trust chain
 	
