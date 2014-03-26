@@ -20,7 +20,7 @@ automount for login window access.
 	Self signed certificate :	if you set encryption mode to on,
 								and your server uses a self signed 	
 								certificate to do the encryption,
-								copy and paste the cert in this box
+								copy and paste the cert in this box  
 
 
 you can get self signed cert using  
