@@ -16,9 +16,20 @@ automount for login window access.
 	Password Suffix: cn=users
 	Machine Suffix:  cn=computers
 	Encryption Mode:  (depends if you have SSL enabled for OpenDirectory in Server Admin)
+	
 	Self signed certificate :	if you set encryption mode to on,
-								and your server uses a self signed 																						certificate to do the encryption,
+								and your server uses a self signed 	
+								certificate to do the encryption,
 								copy and paste the cert in this box
+	
+	you can get the certs using  
+	```
+	 openssl s_client -connect your.ldap.server:636 -showcerts
+	```
+	then copy and paste from the first "-----BEGIN CERTIFICATE-----"
+	to the last "-----END CERTIFICATE-----"
+	
+	there will most likely be more than one since it a trust chain
 	
 	Auxiliary Parameters: (these should be the default)
 						ldap_version 3
