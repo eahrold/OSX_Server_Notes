@@ -29,7 +29,6 @@ you can get self signed cert using
 ```  
 then copy and paste from the first "-----BEGIN CERTIFICATE-----"
 to the last "-----END CERTIFICATE-----"  
-
 there will most likely be more than one since it a trust chain
 
 	
