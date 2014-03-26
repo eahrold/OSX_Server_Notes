@@ -36,6 +36,8 @@ psql -h /var/run/caldavd/PostgresSocket/ --username=caldav
 	caldav=# select pg_terminate_backend(pid) from pg_stat_activity where datname='caldav';
 	caldav=# \q
 
+###  you may also need to find the postgres process and kill it (look for postgres with caldav owner)
+
 sudo dropdb -h /var/run/caldavd/PostgresSocket/ -U caldav caldav
 sudo createdb -h /var/run/caldavd/PostgresSocket/ -U caldav caldav
 sudo psql -h /var/run/caldav/PostgresSocket/ -U caldav caldav -f /path/to/pgsql/file.sql
