@@ -31,6 +31,7 @@ then copy and paste from the first "-----BEGIN CERTIFICATE-----"
 to the last "-----END CERTIFICATE-----"  
 
 there will most likely be more than one since it a trust chain
+
 	
 	Auxiliary Parameters: (these should be the default)
 						ldap_version 3
