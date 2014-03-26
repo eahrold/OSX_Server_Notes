@@ -5,18 +5,28 @@ automount for login window access.
 
 ###SETTING UP LDAP
 	Hostname: your.hostname.com  
+
 	Base DN: dc=your,dc=hostname,dc=com  
+
 	Allow Anoymous Binding: your choice  
+
 	Root bind DN: uid=diradmin,cn=users,dc=your,dc=hostname,dc=com  
+
 	Root bind Password:  *********  
 		(make sure the user name and password will get you logged in using workgroup manger)  
+
 	Password Encryption: md5  
+
 	User Suffix:  cn=users  
+
 	Group Suffix: cn=groups  
+
 	Password Suffix: cn=users  
+
 	Machine Suffix:  cn=computers  
+
 	Encryption Mode:  (depends if you have SSL enabled for OpenDirectory in Server Admin)  
-	
+
 	Self signed certificate :	if you set encryption mode to on,
 								and your server uses a self signed 	
 								certificate to do the encryption,
