@@ -4,18 +4,18 @@ This guide will show how to set up for User Home Accounts hosted via AFP includi
 automount for login window access.
 
 ###SETTING UP LDAP
-	Hostname: your.hostname.com
-	Base DN: dc=your,dc=hostname,dc=com
-	Allow Anoymous Binding: your choice
+	Hostname: your.hostname.com  
+	Base DN: dc=your,dc=hostname,dc=com  
+	Allow Anoymous Binding: your choice  
 	Root bind DN: uid=diradmin,cn=users,dc=your,dc=hostname,dc=com  
-	Root bind Password:  *********
-		(make sure the user name and password will get you logged in using workgroup manger)
-	Password Encryption: md5
-	User Suffix:  cn=users
-	Group Suffix: cn=groups
-	Password Suffix: cn=users
-	Machine Suffix:  cn=computers
-	Encryption Mode:  (depends if you have SSL enabled for OpenDirectory in Server Admin)
+	Root bind Password:  *********  
+		(make sure the user name and password will get you logged in using workgroup manger)  
+	Password Encryption: md5  
+	User Suffix:  cn=users  
+	Group Suffix: cn=groups  
+	Password Suffix: cn=users  
+	Machine Suffix:  cn=computers  
+	Encryption Mode:  (depends if you have SSL enabled for OpenDirectory in Server Admin)  
 	
 	Self signed certificate :	if you set encryption mode to on,
 								and your server uses a self signed 	
@@ -27,8 +27,7 @@ you can get self signed cert using
 ```
  openssl s_client -connect your.ldap.server:636 -showcerts
 ```  
-then copy and paste from the first "-----BEGIN CERTIFICATE-----"
-to the last "-----END CERTIFICATE-----"  
+then copy and paste from the first "-----BEGIN CERTIFICATE-----" to the last "-----END CERTIFICATE-----"  
 there will most likely be more than one since it a trust chain
 
 	
