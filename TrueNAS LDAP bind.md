@@ -32,8 +32,9 @@ automount for login window access.
 	1) For this example we'll add a zpool and then a zfs dataset named Users that will act as our Users home directories
 	
 	
-### TWEAKING FREENAS CLI Style
-####1) configure /etc/pam.d/netatalk  (pre 8.0.1)
+### TWEAKING FREENAS CLI Style  
+
+####1) configure /etc/pam.d/netatalk  (pre 8.0.1)  
 	
 ####2) add items to the /usr/share/skel folder with proper permissions  
 	```  
