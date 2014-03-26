@@ -27,6 +27,7 @@ automount for login window access.
 						bind_policy soft
 						pam_ldap_attribute uid
 	
+
 ### SETTING UP AFP SHARE
 	1) For this example we'll add a zpool and then a zfs dataset named Users that will act as our Users home directories
 	
