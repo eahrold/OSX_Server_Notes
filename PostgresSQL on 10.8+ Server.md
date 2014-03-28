@@ -48,6 +48,7 @@ here's how to wipe the Profile Manager
 ```shell
 /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
 ```
+
 with server 3 there may be errors about open connections so ...
 ```
 sudo psql -h /Library/Server/ProfileManager/Config/var/PostgreSQL/ --username=_devicemgr device_management
@@ -58,7 +59,12 @@ sudo psql -h /Library/Server/ProfileManager/Config/var/PostgreSQL/ --username=_d
 
 and to backup
 ```
+##on 10.8
 sudo ./pg_dumpall  -h /var/pgsql_server_socket --username=_postgres > ~/Desktop/pg_all.sql
+
+#on 10.9
+sudo ./pg_dumpall  -h /Library/Server/ProfileManager/Config/var/PostgreSQL/ --username=_devicemgr > ~/Desktop/pg_all.sql
+
 ```
 
 sudo serveradmin stop postgres_server
