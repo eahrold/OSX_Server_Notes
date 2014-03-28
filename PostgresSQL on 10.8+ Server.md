@@ -47,8 +47,19 @@ sudo psql -h /var/run/caldav/PostgresSocket/ -U caldav caldav -f /path/to/pgsql/
 here's how to wipe the Profile Manager
 ```shell
 /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
+```
+with server 3 there may be errors about open connections so ...
+```
+sudo psql -h /Library/Server/ProfileManager/Config/var/PostgreSQL/ --username=_devicemgr device_management
+	device_management=# select * from pg_stat_activity where datname='devicemgr_v2m0';
+	device_management=# select pg_terminate_backend(pid) from pg_stat_activity where datname='devicemgr_v2m0';
+	device_management=# \q
+```
 
+and to backup
+```
 sudo ./pg_dumpall  -h /var/pgsql_server_socket --username=_postgres > ~/Desktop/pg_all.sql
+```
 
 sudo serveradmin stop postgres_server
 sudo serveradmin start postgres_server
