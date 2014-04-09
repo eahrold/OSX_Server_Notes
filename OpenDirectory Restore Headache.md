@@ -76,10 +76,11 @@ in particular apple-group-memberguid and apple-group-nestedgroup are only set wi
 
 the easiest way is to fix this is by using Directory Editor\*.   Go to your /LDAPv3/127.0.0.1, login as diradmin, then navigate to the OLCDBDConfig.  Go to your dc=my,dc=server,dc=com  find the value for each of the following and change to what's here
 
-	apple-group-nestedgroup    eq,sub
-	apple-group-memberguid     eq,sub
-	altSecurityIdentities      eq,sub
-
+```
+apple-group-nestedgroup    eq,sub
+apple-group-memberguid     eq,sub
+altSecurityIdentities      eq,sub
+```
 
 
 
@@ -87,22 +88,26 @@ the easiest way is to fix this is by using Directory Editor\*.   Go to your /LDA
 
 In your terminal do
 
-	kinit diradmin
-	ldapmodify
+```
+kinit diradmin
+ldapmodify
+```
 
 then add these lines in the now open field
 
-	dn: olcDatabase={1}bdb,cn=config
-	changetype: modify
-	delete: olcDbIndex
-	olcDbIndex: apple-group-nestedgroup eq
-	olcDbIndex: apple-group-memberguid eq
-	olcDbIndex: altSecurityIdentities eq
-	-
-	add: olcDbIndex
-	olcDbIndex: apple-group-nestedgroup eq,sub
-	olcDbIndex: apple-group-memberguid eq,sub
-	olcDbIndex: altSecurityIdentities eq,sub
+```
+dn: olcDatabase={1}bdb,cn=config
+changetype: modify
+delete: olcDbIndex
+olcDbIndex: apple-group-nestedgroup eq
+olcDbIndex: apple-group-memberguid eq
+olcDbIndex: altSecurityIdentities eq
+-
+add: olcDbIndex
+olcDbIndex: apple-group-nestedgroup eq,sub
+olcDbIndex: apple-group-memberguid eq,sub
+olcDbIndex: altSecurityIdentities eq,sub
+```
 
 make sure you press enter after entering the last line then
 press contorl-D. You should see this message
@@ -114,18 +119,49 @@ you can enter any number of values in the above command if you're seeing the sub
 
 I also was seeing these errors 
 
-	slapd[41150]: <= bdb_equality_candidates: (apple-transactionID) not indexed
-	slapd[41150]: <= bdb_equality_candidates: (apple-serialNumber) not indexed
-	slapd[41150]: <= bdb_equality_candidates: (apple-issuer) not indexed
+```
+slapd[41150]: <= bdb_equality_candidates: (apple-transactionID) not indexed
+slapd[41150]: <= bdb_equality_candidates: (apple-serialNumber) not indexed
+slapd[41150]: <= bdb_equality_candidates: (apple-issuer) not indexed
+```
 
 here's the ldapmodify entry to fix those...
 
-	dn: olcDatabase={1}bdb,cn=config
-	changetype: modify
-	add: olcDbIndex
-	olcDbIndex: apple-transactionID eq
-	olcDbIndex: apple-serialNumber eq
-	olcDbIndex: apple-issuer eq
+```
+dn: olcDatabase={1}bdb,cn=config
+changetype: modify
+add: olcDbIndex
+olcDbIndex: apple-transactionID eq
+olcDbIndex: apple-serialNumber eq
+olcDbIndex: apple-issuer eq
+```
+
+and then a few months later, after unsuccessfully enabling device management,
+i needed to run this
+```
+dn: olcDatabase={1}bdb,cn=config
+changetype: modify
+add: olcDbIndex
+olcDbIndex: entryUUID eq
+olcDbIndex: apple-realname eq
+olcDbIndex: apple-group-memberguid eq
+olcDbIndex: apple-group-nestedgroup eq
+olcDbIndex: macAddress eq
+olcDbIndex: gidNumber eq
+olcDbIndex: apple-hwuuid eq
+olcDbIndex: apple-transactionID eq
+olcDbIndex: apple-serialNumber eq
+olcDbIndex: apple-issuer eq
+olcDbIndex: objectClass eq
+olcDbIndex: memberUid eq
+olcDbIndex: ipHostNumber eq
+olcDbIndex: ou apple-computers eq
+olcDbIndex: uid eq,sub
+olcDbIndex: ou eq
+olcDbIndex: cn eq,sub
+olcDbIndex: altSecurityIdentities eq,sub
+```
+
 
 
 helpful links
