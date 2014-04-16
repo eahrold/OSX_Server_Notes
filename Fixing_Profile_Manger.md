@@ -52,6 +52,12 @@ if you don't have both, repeat these steps wiping all of the Certificates for Di
 
 ###Untested...
 now you should be able to restore your devicemgr settings using
+```
 sudo dropdb -h /Library/Server/ProfileManager/Config/var/PostgreSQL --username=_devicemgr devicemgr_v2m0
+```
+```
 sudo createdb -h /Library/Server/ProfileManager/Config/var/PostgreSQL --username=_devicemgr devicemgr_v2m0
+```
+```
 sudo psql -h /Library/Server/ProfileManager/Config/var/PostgreSQL --username=_devicemgr devicemgr_v2m0 -f ~/Desktop/device_management.sql
+```
