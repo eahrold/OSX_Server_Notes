@@ -12,7 +12,7 @@ or if using server 3.1
 sudo pg_dump -h /Library/Server/ProfileManager/Config/var/PostgreSQL --username=_devicemgr devicemgr_v2m0 > ~/Desktop/device_management.sql
 
 ```
-or if apple has again changed things yet again here's how to find the db name to backup...
+or if apple has changed things yet again here's how to find the db name to backup...
 ```
 sudo find /Library/Server/ -name .s.PGSQL*
 	## and look for the one that most resembels Profile Manager then 
