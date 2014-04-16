@@ -57,6 +57,9 @@ sudo psql -h /Library/Server/ProfileManager/Config/var/PostgreSQL/ --username=_d
 	device_management=# \q
 ```
 
+in server 3.1 they've again changed a bunch of stuff 
+now the db is called devicemgr_v2m0 for god knows what reason.
+
 and to backup
 ```
 ##on 10.8
