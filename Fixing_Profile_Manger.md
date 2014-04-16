@@ -36,7 +36,7 @@ Next in Keychain Access, choose the System keychain and find all of the referenc
 _* if your keychain is cluttered by a bunch of keys with your FQDN, you can get rid of the ones without a toggle triangle really are not in use and can safely be removed_
 
 
-This next step is where I found the magic...
+This next step is where I found the magic...  
 purge /var/root/Library/Application Support/Certificate Authorities/
 
     sudo rm -r /var/root/Library/Application Support/Certificate Authorities/*
