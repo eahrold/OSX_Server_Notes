@@ -3,6 +3,7 @@
 While you won't need to start from scratch you will need to create a New Certificate Authority  
 
 ====
+### optional backup steps...
 if you need to back up your config do this in server 3.0
 ```
 sudo pg_dump -h /Library/Server/ProfileManager/Config/var/PostgreSQL --username=_devicemgr device_management > ~/Desktop/device_management.sql
@@ -22,6 +23,7 @@ sudo psql -h /path/to/the/above results/Socket/ --username=_devicemgr template1
 	##press enter an it should show you a table with the proper database name
 ```
 ====
+###On to fixing profile manager
 First using the Server.app create a dummy temp certificate in the certificate pane.
 set all services to use that.  
 
