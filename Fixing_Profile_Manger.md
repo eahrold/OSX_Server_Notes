@@ -33,7 +33,9 @@ click the lock and authenticate as your directory admin
 in the viewing: popup button choose CertificateAuthorities and remove all the entries from there
 
 Next in Keychain Access, choose the System keychain and find all of the references to the previous Certificate Authorities, Intermediate CAs and certificate files signed by those CA's and remove both the certificate and the key for each.  You'll get a better overview if you choose "Keys" as the catagory in the left hand window.
-_* if your keychain is cluttered by a bunch of keys with your FQDN, you can get rid of the ones without a toggle triangle really are not in use and can safely be removed_
+The key will be linked to the Certificate you want to delete.
+
+_* optional cleanup: if your keychain is cluttered by a bunch of keys with your FQDN, you can get rid of the ones without a toggle triangle really are not in use and can safely be removed_
 
 
 This next step is where I found the magic...  
