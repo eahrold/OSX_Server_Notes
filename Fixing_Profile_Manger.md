@@ -23,7 +23,8 @@ Finally wipe the profile manger db
 
     /Applications/Server.app/Contents/ServerRoot/usr/share/devicemgr/backend/wipeDB.sh
 
-after all of these steps are completed re-run the Profile Manger setup using the server.app
+after all of these steps are completed re-run the Profile Manger setup using the server.app  
+
 Check that you Have a New Open Directory Certificate Authority, AND a new IntermediateCA listed in the CertificateAuthority section of Directory Utility.
 if you don't have both, repeat these steps wiping all of the Certificates for Directory Utility and Keychain access.
 
