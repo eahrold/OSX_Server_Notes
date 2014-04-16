@@ -39,7 +39,7 @@ _* if your keychain is cluttered by a bunch of keys with your FQDN, you can get 
 This next step is where I found the magic...
 purge /var/root/Library/Application Support/Certificate Authorities/
 
-    sudo rm -r /var/root/Library/Application Support/Certificate Authorities/
+    sudo rm -r /var/root/Library/Application Support/Certificate Authorities/*
     
 Finally wipe the profile manger db
 
