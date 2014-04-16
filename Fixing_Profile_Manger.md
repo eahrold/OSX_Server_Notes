@@ -19,7 +19,7 @@ sudo find /Library/Server/ -name .s.PGSQL*
 	## in the next command you'll want to omit the .s.PGSQL part and just put the directory
 sudo psql -h /path/to/the/above results/Socket/ --username=_devicemgr template1  
 	template1=#\list
-	##press enter an it should show you the proper database name
+	##press enter an it should show you a table with the proper database name
 ```
 ====
 First using the Server.app create a dummy temp certificate in the certificate pane.
