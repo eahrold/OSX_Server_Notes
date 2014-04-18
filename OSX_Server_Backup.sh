@@ -46,10 +46,7 @@ backup_postgres(){
 }
 
 backup_ldap(){
-	# slapconfig -backupdb
-	serveradmin command = dirserv:backupArchiveParams:archivePassword "$OD_ARCHIVE_PASSWORD"
-	serveradmin command = dirserv:backupArchiveParams:archivePath "${FINAL_DEST}"/ODArchive.dmg
-	serveradmin command = dirserv:command backupArchive
+	slapconfig -backupdb "${FINAL_DEST}"/ODArchive.dmg -P "$OD_ARCHIVE_PASSWORD" 
 }
 
 ####  Do the backup... 
