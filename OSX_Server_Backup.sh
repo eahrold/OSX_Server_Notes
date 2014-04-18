@@ -56,7 +56,7 @@ backup_opendirectory(){
 }
 
 backup_named(){
-	zip -r "${FINAL_DEST}"/named.zip /Library/Servers/named
+	zip -r "${FINAL_DEST}/named.zip" /Library/Servers/named
 }
 
 restore_opendirectory(){
@@ -76,5 +76,5 @@ if [[ ! -d  "${FINAL_DEST}" ]] ; then
 fi
 
 # backup_postgres
-backup_opendirectory
+# backup_opendirectory
 backup_named
