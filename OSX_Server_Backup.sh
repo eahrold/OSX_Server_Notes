@@ -20,7 +20,7 @@ FINAL_DEST=`eval echo ${BACKUP_DIR}${TIMESTAMP}`
 
 backup_postgres(){
 	### dump all of OSX's standard postgres, what you would be using for your own websites, etc...
-	if[ -d "${POSTGRES_SOCKET_DIR}" ]; then
+	if [ -d "${POSTGRES_SOCKET_DIR}" ]; then
 	sudo pg_dumpall  -h "${POSTGRES_SOCKET_DIR}" --username=_postgres > "${FINAL_DEST}"/os_x_pg_backup.sql
 	else
 		echo "The Standard Postgres Socket directory is not set correctly or does not exist"
