@@ -57,9 +57,11 @@ backup_opendirectory(){
 }
 
 restore_opendirectory(){
+	echo ""
 }
 
 restore_postgres(){
+	echo ""
 }
 
 ####  Do the backup... 
