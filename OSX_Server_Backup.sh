@@ -46,7 +46,7 @@ backup_postgres(){
 }
 
 backup_ldap(){
-	slapconfig -backupdb "${FINAL_DEST}"/ODArchive.dmg -P "$OD_ARCHIVE_PASSWORD" 
+	slapconfig -backupdb "${FINAL_DEST}"/ODArchive.dmg "$OD_ARCHIVE_PASSWORD" 
 }
 
 ####  Do the backup... 
