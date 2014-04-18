@@ -41,7 +41,7 @@ backup_postgres(){
 	fi
 }
 
-backup_ldap(){
+backup_opendirectory(){
 	OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
 	
 	expect <<- DONE
@@ -64,5 +64,5 @@ if [[ ! -d  "${FINAL_DEST}" ]] ; then
 	exit 1
 fi
 
-backup_ldap
 backup_postgres
+backup_opendirectory
