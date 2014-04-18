@@ -46,7 +46,7 @@ backup_opendirectory(){
 	
 	expect <<- DONE
 	  set timeout -1
-	  spawn slapconfig -backupdb ${FINAL_DEST}/ODArchive.dmg
+	  spawn slapconfig -backupdb '${FINAL_DEST}'/ODArchive.dmg
 	  expect "*?assword:*"
 	  send "$OD_ARCHIVE_PASSWORD\r"
 	  send  "\r"
