@@ -44,7 +44,7 @@ backup_postgres(){
 backup_ldap(){
 	OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
 	
-	# expect <<- DONE
+	expect <<- DONE
 	  set timeout -1
 	  spawn slapconfig -backupdb $FINAL_DEST/ODArchive.dmg
 
@@ -53,7 +53,7 @@ backup_ldap(){
 	  send "$OD_ARCHIVE_PASSWORD\r"
 	  send  "\r"
 	  expect eof
-	# DONE
+	DONE
 	
 }
 
