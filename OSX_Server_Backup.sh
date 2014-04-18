@@ -53,19 +53,12 @@ backup_ldap(){
 	  # Look for passwod prompt
 	  expect "*?assword:*"
 	  # Send password aka $password
-	  send -- "$OD_ARCHIVE_PASSWORD"
+	  send -- "$OD_ARCHIVE_PASSWORD\r"
 	  # send blank line (\r) to make sure we get back to gui
 	  send -- "\r"
 	  expect eof
 	DONE
 	
-	# OD_CMD="${FINAL_DEST}"/.tmp_od
-
-	# echo "dirserv:backupArchiveParams:archivePassword = $OD_ARCHIVE_PASSWORD" > "$OD_CMD"
-	# echo "dirserv:backupArchiveParams:archivePath = ${FINAL_DEST}/ODArchive" >> "$OD_CMD"
-	# echo "dirserv:command = backupArchive" >> "$OD_CMD"
-	# 
-	# serveradmin command < "$OD_CMD"
 }
 
 ####  Do the backup... 
