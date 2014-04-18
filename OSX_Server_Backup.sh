@@ -67,6 +67,10 @@ restore_postgres(){
 	echo ""
 }
 
+clean_old_backups{
+	echo ""
+}
+
 ####  Do the backup... 
 mkdir -p -m 777 "${FINAL_DEST}"
 
