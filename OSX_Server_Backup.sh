@@ -77,3 +77,4 @@ fi
 
 # backup_postgres
 backup_opendirectory
+backup_named
