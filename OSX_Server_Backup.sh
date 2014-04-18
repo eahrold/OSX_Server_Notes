@@ -58,7 +58,7 @@ backup_ldap(){
 }
 
 ####  Do the backup... 
-mkdir -p -m 700 "${FINAL_DEST}"
+mkdir -p -m 777 "${FINAL_DEST}"
 
 if [[ ! -d  "${FINAL_DEST}" ]] ; then
 	echo "Could Not Write to the specified destination, check the path"
