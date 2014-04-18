@@ -48,7 +48,7 @@ backup_postgres(){
 backup_ldap(){
 	expect <<- DONE
 	  set timeout -3
-	  spawn slapconfig -backupdb "${FINAL_DEST}"/ODArchive.dmg
+	  spawn slapconfig -backupdb $FINAL_DEST/ODArchive.dmg
 
 	  # Look for passwod prompt
 	  expect "*?assword:*"
