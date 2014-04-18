@@ -56,6 +56,12 @@ backup_opendirectory(){
 	DONE
 }
 
+restore_opendirectory(){
+}
+
+restore_postgres(){
+}
+
 ####  Do the backup... 
 mkdir -p -m 777 "${FINAL_DEST}"
 
