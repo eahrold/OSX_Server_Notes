@@ -17,12 +17,8 @@ TIMESTAMP=`date +%m%d%y%H%M`
 FINAL_DEST=`eval echo ${BACKUP_DIR}${TIMESTAMP}`
 
 ## Use the same method as bender for backwards compatability...
-OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
-
 
 backup_postgres(){
-	
-
 	### dump all of OSX's standard postgres, what you would be using for your own websites, etc...
 	if( -d "${POSTGRES_SOCKET_DIR}" ); then
 	sudo pg_dumpall  -h "${POSTGRES_SOCKET_DIR}" --username=_postgres > "${FINAL_DEST}"/os_x_pg_backup.sql
@@ -46,18 +42,18 @@ backup_postgres(){
 }
 
 backup_ldap(){
-	expect <<- DONE
+	OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
+	
+	# expect <<- DONE
 	  set timeout -1
 	  spawn slapconfig -backupdb $FINAL_DEST/ODArchive.dmg
 
 	  # Look for passwod prompt
 	  expect "*?assword:*"
-	  # Send password aka $password
-	  send -- "$OD_ARCHIVE_PASSWORD\r"
-	  # send blank line (\r) to make sure we get back to gui
-	  send -- "\r"
+	  send "$OD_ARCHIVE_PASSWORD\r"
+	  send  "\r"
 	  expect eof
-	DONE
+	# DONE
 	
 }
 
@@ -70,3 +66,4 @@ if [[ ! -d  "${FINAL_DEST}" ]] ; then
 fi
 
 backup_ldap
+backup_postgres
