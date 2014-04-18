@@ -75,6 +75,6 @@ if [[ ! -d  "${FINAL_DEST}" ]] ; then
 	exit 1
 fi
 
-# backup_postgres
-# backup_opendirectory
+backup_postgres
+backup_opendirectory
 backup_named
