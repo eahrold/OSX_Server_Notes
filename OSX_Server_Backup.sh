@@ -46,7 +46,7 @@ backup_opendirectory(){
 	
 	expect <<- DONE
 	  set timeout -1
-	  spawn slapconfig -backupdb $FINAL_DEST/ODArchive.dmg
+	  spawn slapconfig -backupdb '$FINAL_DEST/ODArchive.dmg'
 
 	  # Look for passwod prompt
 	  expect "*?assword:*"
