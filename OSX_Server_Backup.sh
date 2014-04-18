@@ -12,11 +12,8 @@ POSTGRES_SOCKET_DIR="/var/pgsql_socket"
 CALDAV_SCOKET_DIR="/var/run/caldavd/PostgresSocket/"
 DEVICEMGR_SOCKET_DIR="/Library/Server/ProfileManager/Config/var/PostgreSQL/"
 
-
 TIMESTAMP=`date +%m%d%y%H%M`
 FINAL_DEST=`eval echo ${BACKUP_DIR}${TIMESTAMP}`
-
-## Use the same method as bender for backwards compatability...
 
 backup_postgres(){
 	### dump all of OSX's standard postgres, what you would be using for your own websites, etc...
@@ -35,13 +32,14 @@ backup_postgres(){
  
 	### backup the Device Manager DB
 	if [ -d "${DEVICEMGR_SOCKET_DIR}" ]; then
-		sudo pg_dump -h "${DEVICEMGR_SOCKET_DIR}" --username=_devicemgr device_management > "${FINAL_DEST}"/postgres_device_manager.sql
+		sudo pg_dump -h "${DEVICEMGR_SOCKET_DIR}" --username=_devicemgr devicemgr_v2m0 > "${FINAL_DEST}"/postgres_device_manager.sql
 	else
 		echo "The Device Manager Postgres Socket directory is not set correctly or does not exist"
 	fi
 }
 
 backup_opendirectory(){
+	## Use the same method as bender for backwards compatability...
 	OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
 	cd "${FINAL_DEST}"
 		
