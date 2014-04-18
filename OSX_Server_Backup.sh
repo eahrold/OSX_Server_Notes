@@ -55,6 +55,10 @@ backup_opendirectory(){
 	DONE
 }
 
+backup_named(){
+	zip -r "${FINAL_DEST}"/named.zip /Library/Servers/named
+}
+
 restore_opendirectory(){
 	echo ""
 }
