@@ -6,7 +6,7 @@
 
 set -ex 
 
-BACKUP_DIR="~/ServerBackups/"
+BACKUP_DIR="~/Server Backups/"
 
 POSTGRES_SOCKET_DIR="/var/pgsql_socket"
 CALDAV_SCOKET_DIR="/var/run/caldavd/PostgresSocket/"
