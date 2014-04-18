@@ -12,15 +12,16 @@ POSTGRES_SOCKET_DIR="/var/pgsql_socket"
 CALDAV_SCOKET_DIR="/var/run/caldavd/PostgresSocket/"
 DEVICEMGR_SOCKET_DIR="/Library/Server/ProfileManager/Config/var/PostgreSQL/"
 
+
 TIMESTAMP=`date +%m%d%y%H%M`
 FINAL_DEST=`eval echo ${BACKUP_DIR}${TIMESTAMP}`
-mkdir -p -m 700 "${FINAL_DEST}"
+
+## Use the same method as bender for backwards compatability...
+OD_ARCHIVE_PASSWORD=`/sbin/ifconfig | /usr/bin/grep -m 1 ether | /usr/bin/awk '{print $2}' | /usr/bin/sed 's/://g' | /usr/bin/cut -c 5-`
+
 
 backup_postgres(){
-	if [[ ! -d  "${FINAL_DEST}" ]] ; then
-		echo "Could Not Write to the specified destination, check the path"
-		exit 1
-	fi
+	
 
 	### dump all of OSX's standard postgres, what you would be using for your own websites, etc...
 	if( -d "${POSTGRES_SOCKET_DIR}" ); then
@@ -44,3 +45,18 @@ backup_postgres(){
 	fi
 }
 
+backup_ldap(){
+	serveradmin dirserv:backupArchiveParams:archivePassword = {$OD_ARCHIVE_PASSWORD}\n
+	serveradmin dirserv:backupArchiveParams:archivePath = "${FINAL_DEST}"/ODArchive.dmg\n
+	serveradmin serveradmin dirserv:command = backupArchive
+}
+
+####  Do the backup... 
+mkdir -p -m 700 "${FINAL_DEST}"
+
+if [[ ! -d  "${FINAL_DEST}" ]] ; then
+	echo "Could Not Write to the specified destination, check the path"
+	exit 1
+fi
+
+backup_ldap
