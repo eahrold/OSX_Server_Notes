@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>displayName</key>
+	<string>Jenkins-CI</string>
+	<key>installationIndicatorFilePath</key>
+	<string>/Library/LaunchDaemons/org.jenkins-ci.plist</string>
+	<key>name</key>
+	<string>org.jenkins-ci.webapp</string>
+	<key>proxies</key>
+	<dict>
+		<key>/jenkins</key>
+		<dict>
+			<key>keysAndValues</key>
+			<string></string>
+			<key>path</key>
+			<string>/jenkins</string>
+			<key>urls</key>
+			<array>
+				<string>http://localhost:8080/jenkins</string>
+			</array>
+		</dict>
+	</dict>
+	<key>requiredModuleNames</key>
+	<array>
+		<string>proxy_module</string>
+	</array>
+	<key>sslPolicy</key>
+	<integer>0</integer>
+</dict>
+</plist>
