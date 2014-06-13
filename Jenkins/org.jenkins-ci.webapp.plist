@@ -8,20 +8,6 @@
 	<string>/Library/LaunchDaemons/org.jenkins-ci.plist</string>
 	<key>name</key>
 	<string>org.jenkins-ci.webapp</string>
-	<key>proxies</key>
-	<dict>
-		<key>/jenkins</key>
-		<dict>
-			<key>keysAndValues</key>
-			<string></string>
-			<key>path</key>
-			<string>/jenkins</string>
-			<key>urls</key>
-			<array>
-				<string>http://localhost:8080/jenkins</string>
-			</array>
-		</dict>
-	</dict>
 	<key>requiredModuleNames</key>
 	<array>
 		<string>proxy_module</string>
