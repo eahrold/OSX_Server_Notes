@@ -8,4 +8,4 @@ if you've installed from the jenkins official .pkg then do this
 
 
 then put the org.jenkins-ci.webapp.plist file in "/Library/Servers/Web/Config/apache2/webapps/"
-
+and the httpd_jenkins-ssl.conf file in "/Library/Servers/Web/Config/apache2/webapps/"
