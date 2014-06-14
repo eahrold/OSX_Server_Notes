@@ -2,7 +2,7 @@
 
 you need to do this to add the args to the Jenkins start script...
 
-if you've installed from the jenknins official .pkg then do this
+if you've installed from the jenkins official .pkg then do this
 
     sudo defaults write /Library/Preferences/org.jenkins-ci prefix /jenkins
 
