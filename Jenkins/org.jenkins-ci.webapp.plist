@@ -8,7 +8,7 @@
 	<string>/Library/LaunchDaemons/org.jenkins-ci.plist</string>
 	<key>includeFiles</key>
 		<array>
-			<string>/Library/Server/Web/Config/apache2/http_jenkins-ci_ssl.conf</string>
+			<string>/Library/Server/Web/Config/apache2/httpd_jenkins-ci_ssl.conf</string>
 		</array>
 	<key>name</key>
 	<string>org.jenkins-ci.webapp</string>
