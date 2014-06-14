@@ -6,7 +6,6 @@ if you've installed from the jenknins official .pkg then do this
 
     sudo defaults write /Library/Preferences/org.jenkins-ci prefix /jenkins
 
-if you've installed via homebrew edit 
-	
+
 then put the org.jenkins-ci.webapp.plist file in "/Library/Servers/Web/Config/apache2/webapps/"
 
