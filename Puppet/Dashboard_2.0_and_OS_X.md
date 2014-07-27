@@ -111,3 +111,4 @@ rvmsudo rvm get stable && rvm reload && rvmsudo rvm repair all
 gem install passenger
 /usr/local/rvm/gems/ruby-2.1.1/bin/passenger-install-apache2-module
 ```
+ 
