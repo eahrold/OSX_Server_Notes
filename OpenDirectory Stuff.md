@@ -106,3 +106,14 @@ do Control-D...  After that reindex by doing
 	changetype: modify
 	add: olcDbIndex
 	olcDbIndex: substring_indicated_by_error eq,sub
+
+### Sweet solution for recovery
+```
+sudo launchctl unload /System/LIbrary/LaunchDaemons/org.openldap.slapd.plist
+diskutil repairPermissions /
+sudo db_recover -cv -h /var/db/openldap/openldap-data/
+sudo /usr/libexec/slapd -Tt
+sudo db_recover -cv -h /var/db/openldap/authdata/
+sudo /usr/libexec/slapd -Tt
+sudo launchctl load /System/LIbrary/LaunchDaemons/org.openldap.slapd.plist
+```
