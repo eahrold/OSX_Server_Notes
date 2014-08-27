@@ -107,7 +107,8 @@ do Control-D...  After that reindex by doing
 	add: olcDbIndex
 	olcDbIndex: substring_indicated_by_error eq,sub
 
-### Sweet solution for recovery
+### Sweet solution for recovery 
+_from https://discussions.apple.com/thread/4149695?start=15&tstart=0_
 ```
 sudo launchctl unload /System/LIbrary/LaunchDaemons/org.openldap.slapd.plist
 diskutil repairPermissions /
