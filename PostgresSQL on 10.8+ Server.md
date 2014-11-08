@@ -1,5 +1,8 @@
 #### About PostgresSQL
 
+##Alert !!! 
+###http://www.macambulance.co.uk/os-x-server-3-2-1-update-breaks-postgresql/
+
 ----
 ###10.8 only  
 First off make OS X Server a little more posix friendly...
